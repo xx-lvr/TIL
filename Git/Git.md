@@ -62,3 +62,10 @@ Tracking Branch: 로컬 브랜치가 원격 브랜치와 연결되어 있는 경
 + ```git commit -m '메시지'``` // 변경 사항을 로컬 저장소에 커밋합니다. 커밋 메시지는 현재 변경 사항을 설명하는 것이 좋습니다
 + ```git push -u origin main``` //로컬 저장소의 커밋된 내용을 원격 저장소(GitHub)에 업로드합니다.
 + ```git push -u origin master```//이건 기본 브랜치가 master인 경우에 아니면 main 쓰면 된다.
+
+## 저장소에서 코드 가져오는 법
++ origin에서 가져오는 법은 git pull origin master
++ 원격 저장소에서 코드 가져오는 법은 git clone(url)(저장할 폴더 이름)
++ 원격에서 로컬로 가져오는 법은 git fetch origin
++ 병합하는건 git checkout master, git merge (브랜치명)
++ 특정 브랜치를 다른 브랜치의 코드로 대체는 git checkout (바뀔 브랜치), git reset --hard (타깃 브랜치)
