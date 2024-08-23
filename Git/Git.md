@@ -68,4 +68,4 @@ Tracking Branch: 로컬 브랜치가 원격 브랜치와 연결되어 있는 경
 + 원격 저장소에서 코드 가져오는 법은 git clone(url)(저장할 폴더 이름)
 + 원격에서 로컬로 가져오는 법은 git fetch origin
 + 병합하는건 git checkout master, git merge (브랜치명)
-+ 특정 브랜치를 다른 브랜치의 코드로 대체는 git checkout (바뀔 브랜치), git reset --hard (타깃 브랜치)
++ 특정 브랜치를 다른 브랜치의 코드로 대체는 git checkout (바뀔 브랜치), git reset --hard(타깃 브랜치)
