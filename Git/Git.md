@@ -52,6 +52,13 @@ git pull origin <branch>: 원격 저장소의 지정된 브랜치에서 변경 �
 git push origin <branch>: 로컬 브랜치의 변경 사항을 원격 저장소의 지정된 브랜치에 푸시합니다.\
 Tracking Branch: 로컬 브랜치가 원격 브랜치와 연결되어 있는 경우, git push와 git pull 명령어를 사용할 때 별도로 브랜치를 지정하지 않아도 기본적으로 연결된 원격 브랜치로 동작합니다.
 
+## 저장소에서 코드 가져오는 법
++ origin에서 가져오는 법은 git pull origin master
++ 원격 저장소에서 코드 가져오는 법은 git clone(url)(저장할 폴더 이름)
++ 원격에서 로컬로 가져오는 법은 git fetch origin
++ 병합하는건 git checkout master, git merge (브랜치명)
++ 특정 브랜치를 다른 브랜치의 코드로 대체는 git checkout (바뀔 브랜치), git reset --hard(타깃 브랜치)
+
 ## vscode에서 github에 올리는 방법
 + ```git을 설치하기```
 + ```설치 후 터미널에서 git--version```//입력하여 설치가 제대로 되었는지 확인
@@ -62,10 +69,3 @@ Tracking Branch: 로컬 브랜치가 원격 브랜치와 연결되어 있는 경
 + ```git commit -m '메시지'``` // 변경 사항을 로컬 저장소에 커밋합니다. 커밋 메시지는 현재 변경 사항을 설명하는 것이 좋습니다
 + ```git push -u origin main``` //로컬 저장소의 커밋된 내용을 원격 저장소(GitHub)에 업로드합니다.
 + ```git push -u origin master```//이건 기본 브랜치가 master인 경우에 아니면 main 쓰면 된다.
-
-## 저장소에서 코드 가져오는 법
-+ origin에서 가져오는 법은 git pull origin master
-+ 원격 저장소에서 코드 가져오는 법은 git clone(url)(저장할 폴더 이름)
-+ 원격에서 로컬로 가져오는 법은 git fetch origin
-+ 병합하는건 git checkout master, git merge (브랜치명)
-+ 특정 브랜치를 다른 브랜치의 코드로 대체는 git checkout (바뀔 브랜치), git reset --hard(타깃 브랜치)
