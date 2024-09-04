@@ -118,4 +118,40 @@ flex-direction이 row(가로 배치)일 때는 아래, column(세로 배치)일 
 아이템들을 가운데로 정렬
 + baseline : 
 아이템들을 텍스트 베이스라인 기준으로 정렬
+### align-content (여러 행 정렬)
+flex-wrap: wrap;이 설정된 상태에서, 아이템들의 행이 2줄 이상 되었을 때의 수직축 방향 정렬을 결정하는 속성입니다.
+```
+.container {
+	flex-wrap: wrap;
+	align-content: stretch;
+	/* align-content: flex-start; */
+	/* align-content: flex-end; */
+	/* align-content: center; */
+	/* align-content: space-between; */
+	/* align-content: space-around; */
+	/* align-content: space-evenly; */
+}
+```
++ 역시나 space-evenly는 MS 계열 브라우저(IE, 엣지)에서는 지원되지 않습니다👎
 
+## Flex 아이템에 적용하는 속성들
+### flex-basis (유연한 박스의 기본 영역)
+flex-basis는 Flex 아이템의 기본 크기를 설정합니다(flex-direction이 row일 때는 너비, column일 때는 높이).\
+flex-basis의 값으로는 우리가 width, height 등에 사용하는 각종 단위의 수가 들어갈 수 있다.
+```
+.item {
+	flex-basis: 100px;
+	width: 100px;
+}
+```
+
+### flex-grow(유연하게 늘리기)
+flex-grow는 아이템이 flex-basis의 값보다 커질 수 있는지를 결정하는 속성!\
+flex-grow에는 숫자값이 들어가는데, 몇이든 일단 0보다 큰 값이 세팅이 되면 해당 아이템이 유연한(Flexible) 박스로 변하고 원래의 크기보다 커지며 빈 공간을 메우게 된다.\
+기본값이 0이기 때문에, 따로 적용하기 전까지는 아이템이 늘어나지 않았던 거예요.
+```
+.item {
+	flex-grow: 1;
+	// flex-grow: 0; // 기본값
+}
+```
