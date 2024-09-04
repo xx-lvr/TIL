@@ -94,3 +94,28 @@ flex-direction이 row(가로 배치)일 때는 오른쪽, column(세로 배치)�
 + space-evenly
 아이템들의 사이와 양 끝에 균일한 간격을 만들어 줍니다.
 주의! IE와 엣지(Edge)에서는 지원되지 않습니다👎
+
+### align=items (수직축 방향 정렬)
+수직축 방향으로 아이템을들 정렬하는 속성
+```
+.container {
+	align-items: stretch;
+	/* align-items: flex-start; */
+	/* align-items: flex-end; */
+	/* align-items: center; */
+	/* align-items: baseline; */
+}
+```
++ stretch (기본값) : 
+아이템들이 수직축 방향으로 끝까지 쭈욱 늘어난다.
++ flex-start : 
+아이템들을 시작점으로 정렬.
+flex-direction이 row(가로 배치)일 때는 위, column(세로 배치)일 때는 왼쪽이다.
++ flex-end :
+아이템들을 끝으로 정렬.
+flex-direction이 row(가로 배치)일 때는 아래, column(세로 배치)일 때는 오른쪽이다.
++ center : 
+아이템들을 가운데로 정렬
++ baseline : 
+아이템들을 텍스트 베이스라인 기준으로 정렬
+
