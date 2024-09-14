@@ -11,14 +11,14 @@
 Git 은 소스 코드 기록을 관리하고 추적할 수 있는 버전 관리 시스템이라면 Github 는 Git Repository를 관리할 수 있는 클라우드 기반 서비스다.
 
 ## Github와 Git의 차이점
-Git: 분산형 버전 관리 시스템으로, 로컬에서 코드의 버전 관리와 기록을 담당합니다.\
-GitHub: Git 리포지토리를 호스팅하는 플랫폼으로, 협업, 코드 리뷰, 이슈 트래킹 등 다양한 기능을 제공합니다.
+**Git**: 분산형 버전 관리 시스템으로, 로컬에서 코드의 버전 관리와 기록을 담당합니다.\
+**GitHub**: Git 리포지토리를 호스팅하는 플랫폼으로, 협업, 코드 리뷰, 이슈 트래킹 등 다양한 기능을 제공합니다.
 
 ## Git Repository
-Git Repository 는 저장소. 즉, 말 그대로 폴더를 저장해두는 곳이다.\
-Remote Repository : 나의 PC에 저장되는 개인 전용 저장소\
-Local Repository : 원격 저장소 전용 서버에 저장되는 저장소
-+ 작업할 때는 Local Repository 에서 할 수 있고, 내가 작업한 코드를 공유하려면 Remote Repository 에 업로드하여 여러 사람이 함께 공유할 수 있다.
+**Git Repository** 는 저장소. 즉, 말 그대로 폴더를 저장해두는 곳이다.\
+**Remote Repository** : 나의 PC에 저장되는 개인 전용 저장소\
+**Local Repository** : 원격 저장소 전용 서버에 저장되는 저장소
++ 작업할 때는 **Local Repository** 에서 할 수 있고, 내가 작업한 코드를 공유하려면 **Remote Repository** 에 업로드하여 여러 사람이 함께 공유할 수 있다.
 
 + 다른 사람이 Remote Repository 에 올려놓은 소스 코드를 내 Local Repository 로 가지고 올 수 있다.
 
@@ -79,26 +79,19 @@ git clone <url>
 1. git pull: 현재 작업 중인 브랜치와 원격 저장소의 동일한 브랜치를 동기화합니다. 원격 저장소의 변경 사항을 가져와 자동으로 병합합니다.
 2. git fetch: 원격 저장소의 모든 브랜치에서 최신 변경 사항을 가져옵니다. 병합은 하지 않으며, 변경 사항은 로컬의 FETCH_HEAD에 저장됩니다.
 3. git pull origin <branch-name>: 원격 저장소의 <branch-name> 브랜치에서 변경 사항을 가져와 현재 브랜치에 병합합니다.
-이 명령어들은 로컬 저장소와 원격 저장소를 동기화할 때 사용됩니다. git pull은 자동으로 병합까지 진행하고, git fetch는 변경 사항을 가져오기만 합니다.
 ```
 ## 저장소에서 코드 가져오는 법
 ```bash
-원격 저장소에서 코드 가져오기 (동기화)
-git pull origin <branch-name>
-원격 저장소에서 코드만 가져오기 (병합하지 않음)
-git fetch origin <branch-name>
-원격 저장소에서 모든 브랜치의 코드 가져오기 (병합하지 않음)
-git fetch
-현재 작업 중인 브랜치와 원격 브랜치 동기화
-git pull
-원격 저장소에서 최신 코드로 로컬 브랜치 강제 업데이트
-git reset --hard origin/<branch-name>
+원격 저장소에서 코드 가져오기 (동기화) : git pull origin <branch-name>
+원격 저장소에서 코드만 가져오기 (병합하지 않음) : git fetch origin <branch-name>
+원격 저장소에서 모든 브랜치의 코드 가져오기 (병합하지 않음) : git fetch
+현재 작업 중인 브랜치와 원격 브랜치 동기화 : git pull
+원격 저장소에서 최신 코드로 로컬 브랜치 강제 업데이트 : git reset --hard origin/<branch-name>
 ```
 
 ## vscode에서 github에 올리는 방법
 ```bash
- git을 설치하기
- 설치 후 터미널에서 git--version//입력하여 설치가 제대로 되었는지 확인
+ git을 설치하기 설치 후 터미널에서 git--version//입력하여 설치가 제대로 되었는지 확인
  github에 Repository를 생성하기
  git init // 현재 디렉토리를 Git 저장소로 초기화
  git remote add origin https://github.com/사용자명/저장소명.git // 복사한 GitHub Repository URL을 사용하여 원격 저장소를 로컬 저장소와 연결합니다.
