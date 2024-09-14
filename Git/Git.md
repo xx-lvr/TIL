@@ -86,7 +86,7 @@ git clone <url>
 현재 작업 중인 브랜치와 원격 브랜치 동기화 : git pull
 원격 저장소에서 최신 코드로 로컬 브랜치 강제 업데이트 : git reset --hard origin/<branch-name>
 ```
-
+#### git add와 git commit을 한번에 하는법은 git commit -am "커밋메시지"
 ## vscode에서 github에 올리는 방법
 ```bash
  git을 설치하기 설치 후 터미널에서 git--version//입력하여 설치가 제대로 되었는지 확인
