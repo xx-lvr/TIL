@@ -35,12 +35,10 @@ Local Repository : 원격 저장소 전용 서버에 저장되는 저장소
 ## Branch
 #### Repository(저장소)의 공간에서 독립적으로 어떤 작업을 하기 위한 공간을 만든다.
 
-## Branch 관련 명령어들
 # Git Branch 관련 명령어
 
 ## 브랜치 목록 보기
 ```bash
-git branch
 새 브랜치 생성
 git branch <branch-name>
 새 브랜치 생성 및 이동
@@ -76,21 +74,28 @@ git pull origin <branch-name>
 ```Tracking Branch```: 로컬 브랜치가 원격 브랜치와 연결되어 있는 경우, git push와 git pull 명령어를 사용할 때 별도로 브랜치를 지정하지 않아도 기본적으로 연결된 원격 브랜치로 동작합니다.
 
 ## 저장소에서 코드 가져오는 법
-``` bash
-+  origin에서 가져오는 법은 git pull origin master
-+ 원격 저장소에서 코드 가져오는 법은 git clone(url)(저장할 폴더 이름)
-+ 원격에서 로컬로 가져오는 법은 git fetch origin
-+ 병합하는건 git checkout master, git merge (브랜치명)
-+ 특정 브랜치를 다른 브랜치의 코드로 대체는 git checkout (바뀔 브랜치), git reset --hard(타깃 브랜치)
+```bash
+원격 저장소에서 코드 가져오기 (동기화)
+git pull origin <branch-name>
+원격 저장소에서 코드만 가져오기 (병합하지 않음)
+git fetch origin <branch-name>
+원격 저장소에서 모든 브랜치의 코드 가져오기 (병합하지 않음)
+git fetch
+현재 작업 중인 브랜치와 원격 브랜치 동기화
+git pull
+원격 저장소에서 최신 코드로 로컬 브랜치 강제 업데이트
+git reset --hard origin/<branch-name>
 ```
 
 ## vscode에서 github에 올리는 방법
-+ ```git을 설치하기```
-+ ```설치 후 터미널에서 git--version```//입력하여 설치가 제대로 되었는지 확인
-+ ```github에 Repository를 생성하기```
-+ ```git init``` // 현재 디렉토리를 Git 저장소로 초기화
-+ ```git remote add origin https://github.com/사용자명/저장소명.git``` // 복사한 GitHub Repository URL을 사용하여 원격 저장소를 로컬 저장소와 연결합니다.
-+ ```git add or git add.```(git add 파일명 -> 해당 파일만 저장, git add. 현재 폴더에 있는 모든 파일을 저장)
-+ ```git commit -m '메시지'``` // 변경 사항을 로컬 저장소에 커밋합니다. 커밋 메시지는 현재 변경 사항을 설명하는 것이 좋습니다
-+ ```git push -u origin main``` //로컬 저장소의 커밋된 내용을 원격 저장소(GitHub)에 업로드합니다.
-+ ```git push -u origin master```//이건 기본 브랜치가 master인 경우에 아니면 main 쓰면 된다.
+```bash
+ git을 설치하기
+ 설치 후 터미널에서 git--version//입력하여 설치가 제대로 되었는지 확인
+ github에 Repository를 생성하기
+ git init // 현재 디렉토리를 Git 저장소로 초기화
+ git remote add origin https://github.com/사용자명/저장소명.git // 복사한 GitHub Repository URL을 사용하여 원격 저장소를 로컬 저장소와 연결합니다.
+ git add or git add.(git add 파일명 -> 해당 파일만 저장, git add. 현재 폴더에 있는 모든 파일을 저장)
+ git commit -m '메시지'  // 변경 사항을 로컬 저장소에 커밋합니다. 커밋 메시지는 현재 변경 사항을 설명하는 것이 좋습니다
+ git push -u origin main  //로컬 저장소의 커밋된 내용을 원격 저장소(GitHub)에 업로드합니다.
+ git push -u origin master  //이건 기본 브랜치가 master인 경우에 아니면 main 쓰면 된다.
+ ```
