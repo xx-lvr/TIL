@@ -23,14 +23,16 @@ Local Repository : 원격 저장소 전용 서버에 저장되는 저장소
 + 다른 사람이 Remote Repository 에 올려놓은 소스 코드를 내 Local Repository 로 가지고 올 수 있다.
 
 ## Git의 기본 명령어
-```git init: 새로운 Git 리포지토리를 생성합니다.```\
-```git clone <repository-url>: 원격 리포지토리를 로컬로 복제합니다.```\
-```git add <file>: 변경된 파일을 스테이징합니다.```\
-```git commit -m "message": 스테이지된 변경 사항을 커밋합니다.```\
-```git push: 로컬 커밋을 원격 리포지토리에 푸시합니다.```\
-```git pull: 원격 리포지토리의 변경 사항을 로컬로 가져옵니다.```\
-```git status: 현재 작업 디렉토리의 상태를 확인합니다.```\
-```git log: 커밋 히스토리를 확인합니다.```
+```bash
+git init: 새로운 Git 리포지토리를 생성합니다.
+git clone <repository-url>: 원격 리포지토리를 로컬로 복제합니다.
+git add <file>: 변경된 파일을 스테이징합니다.
+git commit -m "message": 스테이지된 변경 사항을 커밋합니다.
+git push: 로컬 커밋을 원격 리포지토리에 푸시합니다.
+git pull: 원격 리포지토리의 변경 사항을 로컬로 가져옵니다.
+git status: 현재 작업 디렉토리의 상태를 확인합니다.
+git log: 커밋 히스토리를 확인합니다.
+```
 
 ## Branch
 #### Repository(저장소)의 공간에서 독립적으로 어떤 작업을 하기 위한 공간을 만든다.
@@ -39,40 +41,46 @@ Local Repository : 원격 저장소 전용 서버에 저장되는 저장소
 
 ## 브랜치 목록 보기
 ```bash
-새 브랜치 생성
-git branch <branch-name>
-새 브랜치 생성 및 이동
-git checkout -b <branch-name>
-브랜치 삭제
-git branch -d <branch-name>
-원격 브랜치 삭제
-git push origin --delete <branch-name>
-브랜치 전환
-git checkout <branch-name>
-브랜치 병합
-git merge <branch-name>
-브랜치 상태 확인
-git status
-브랜치 변경 사항 확인
-git diff <branch-name>
-브랜치 이름 변경
-git branch -m <old-branch-name> <new-branch-name>
-원격 브랜치 가져오기
-git fetch origin <branch-name>
-원격 브랜치와 로컬 브랜치 동기화
-git pull origin <branch-name>
+새 브랜치 생성 : git branch <branch-name>
+새 브랜치 생성 및 이동 : git checkout -b <branch-name>
+브랜치 삭제 : git branch -d <branch-name>
+원격 브랜치 삭제 : git push origin --delete <branch-name>
+브랜치 전환 : git checkout <branch-name>
+브랜치 병합 : git merge <branch-name>
+브랜치 상태 확인 : git status
+브랜치 변경 사항 확인 : git diff <branch-name>
+브랜치 이름 변경 : git branch -m <old-branch-name> <new-branch-name>
+원격 브랜치 가져오기 : git fetch origin <branch-name>
+원격 브랜치와 로컬 브랜치 동기화 : git pull origin <branch-name>
 ```
 ## Git 원격 저장소
-```origin```이란?: origin은 기본적으로 원격 저장소의 기본 이름으로, 보통 git clone을 통해 복제한 원격 저장소의 이름이 됩니다. 여러 개의 원격 저장소를 관리할 수 있으며, origin은 그 중 하나에 불과합니다.\
-```git remote add origin <url>```: 로컬 리포지토리에 원격 저장소를 추가하고 이름을 origin으로 지정합니다. 이는 협업 시 원격으로 코드를 푸시하거나 풀하기 위해 필요합니다.\
-```git remote -v```: 현재 로컬 리포지토리에 연결된 원격 저장소 목록을 확인할 수 있습니다.\
-```git remote set-url origin <new-url>```: 기존 origin의 URL을 새 URL로 변경할 수 있습니다.
+```bash
+현재 로컬 저장소에 연결된 원격 저장소의 이름만을 나열합니다.
+git remote
+현재 로컬 저장소에 연결된 원격 저장소 목록을 보여줍니다.
+git remote -v
+원격 저장소의 URL을 포함하여 자세한 정보를 보여줍니다.
+git remote add <name> <url>
+새 원격 저장소를 추가합니다. <name>은 원격 저장소의 이름(일반적으로 origin 사용), <url>은 원격 저장소의 URL입니다.
+git remote remove <name>
+기존 원격 저장소를 제거합니다.
+git remote rename <old-name> <new-name>
+원격 저장소의 이름을 변경합니다.
+git push <remote> <branch>
+로컬 브랜치의 변경 사항을 지정된 원격 저장소의 브랜치에 푸시합니다.
+git fetch <remote>
+지정된 원격 저장소에서 최신 변경 사항을 가져옵니다. 병합은 하지 않습니다.
+git pull <remote> <branch>
+지정된 원격 저장소의 브랜치에서 변경 사항을 가져와 현재 로컬 브랜치에 병합합니다.
+git clone <url>
+```
 ## 원격과의 동기화
-```git fetch```: 원격 저장소의 변경 사항을 로컬로 가져오지만, 자동으로 병합하지는 않습니다. 로컬 브랜치와 원격 브랜치의 상태를 동기화하는 데 유용합니다.\
-```git pull origin <branch>```: 원격 저장소의 지정된 브랜치에서 변경 사항을 가져와 현재 로컬 브랜치에 병합합니다.\
-```git push origin <branch>```: 로컬 브랜치의 변경 사항을 원격 저장소의 지정된 브랜치에 푸시합니다.\
-```Tracking Branch```: 로컬 브랜치가 원격 브랜치와 연결되어 있는 경우, git push와 git pull 명령어를 사용할 때 별도로 브랜치를 지정하지 않아도 기본적으로 연결된 원격 브랜치로 동작합니다.
-
+```bash
+1. git pull: 현재 작업 중인 브랜치와 원격 저장소의 동일한 브랜치를 동기화합니다. 원격 저장소의 변경 사항을 가져와 자동으로 병합합니다.
+2. git fetch: 원격 저장소의 모든 브랜치에서 최신 변경 사항을 가져옵니다. 병합은 하지 않으며, 변경 사항은 로컬의 FETCH_HEAD에 저장됩니다.
+3. git pull origin <branch-name>: 원격 저장소의 <branch-name> 브랜치에서 변경 사항을 가져와 현재 브랜치에 병합합니다.
+이 명령어들은 로컬 저장소와 원격 저장소를 동기화할 때 사용됩니다. git pull은 자동으로 병합까지 진행하고, git fetch는 변경 사항을 가져오기만 합니다.
+```
 ## 저장소에서 코드 가져오는 법
 ```bash
 원격 저장소에서 코드 가져오기 (동기화)
