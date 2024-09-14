@@ -37,9 +37,7 @@ git log: 커밋 히스토리를 확인합니다.
 ## Branch
 #### Repository(저장소)의 공간에서 독립적으로 어떤 작업을 하기 위한 공간을 만든다.
 
-# Git Branch 관련 명령어
-
-## 브랜치 목록 보기
+## Git Branch 관련 명령어
 ```bash
 새 브랜치 생성 : git branch <branch-name>
 새 브랜치 생성 및 이동 : git checkout -b <branch-name>
