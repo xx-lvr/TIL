@@ -76,3 +76,13 @@ Math.PI; // 3.141592653589793
 Math.trunc(4.9);  // 4
 Math.trunc(-4.9); // -4
 ```
+
+## Math.sign(x)
+**Math.sign(x)x가 음수, null 또는 양수인지 반환**
+```javascript
+Math.sign(10);   // 1
+Math.sign(-5);   // -1
+Math.sign(0);    // 0
+Math.sign(-0);   // -0
+Math.sign(NaN);  // NaN
+```
