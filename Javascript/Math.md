@@ -61,7 +61,7 @@ Math.ceil(4.9);  // 5
 
 **0 이상 1 미만의 난수를 반환하는 함수. 이 값은 고정되지 않고 호출할 때마다 달라진다.**
 ```javascript
-Math.random(); // 0.367879 (예시, 매번 다른 값이 반환됩니다)
+Math.random(); // 0.3679 (예시, 매번 다른 값이 반환됩니다)
 ```
 
 ## Math.PI
@@ -78,7 +78,7 @@ Math.trunc(-4.9); // -4
 ```
 
 ## Math.sign(x)
-**Math.sign(x)x가 음수, null 또는 양수인지 반환**
+**Math.sign(x), x가 음수, null 또는 양수인지 반환**
 ```javascript
 Math.sign(10);   // 1
 Math.sign(-5);   // -1
