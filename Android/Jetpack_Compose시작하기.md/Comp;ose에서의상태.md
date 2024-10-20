@@ -15,7 +15,7 @@ import androidx.compose.runtime.mutableStateOf
 //
 @Composable
 fun Greeting() {
-    val expanded = mutableStateOf(false) // Don't do this!
+    val expanded = mutableStateOf(false)
 }
 ```
 하지만, 컴포저블 내의 변수에 ```mutableStateOf```를 할당하기만 할 수는 없다. 앞에서 설명한 것처럼 false 값을 가진 변경 가능한 새 상태로 상태를 재설정하여 컴포저블을 다시 호출하는 때는 언제든지 **리컴포지션** 이 일어날 수 있습니다.
