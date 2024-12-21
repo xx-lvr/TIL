@@ -20,7 +20,7 @@ Git 은 소스 코드 기록을 관리하고 추적할 수 있는 버전 관리 
 **Local Repository** : 원격 저장소 전용 서버에 저장되는 저장소
 + 작업할 때는 **Local Repository** 에서 할 수 있고, 내가 작업한 코드를 공유하려면 **Remote Repository** 에 업로드하여 여러 사람이 함께 공유할 수 있다.
 
-+ 다른 사람이 Remote Repository 에 올려놓은 소스 코드를 내 Local Repository 로 가지고 올 수 있다.
++ 다른 사람이 **Remote Repository** 에 올려놓은 소스 코드를 내 **Local Repository** 로 가지고 올 수 있다.
 
 ## Git의 기본 명령어
 ```bash
