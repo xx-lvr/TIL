@@ -30,7 +30,11 @@ Domain Layer는 Date Layer로부터 데이터를 요청하기 위해 레포지�
 구글은 공식적으로 UseCase 이름 지정 규칙을 아래와 같이소개하고 있다.
 
 + **현재 시제의 동사 + 명사/대상(선택사항) + UseCase**
-+ **예시LogOutUserUseCase, GetLatestNewsWithAuthorsUseCase, MakeLoginRequestUseCase**
++ **예시: LogOutUserUseCase, GetLatestNewsWithAuthorsUseCase, MakeLoginRequestUseCase**
 
 ## 레포지토리 인터페이스 (Repository Interface)
-레포지토리 인터페이스는 Domain Layer가 Data Layer로부터 필요한 데이터를 요청하는 방법을 정의한다. 이 인터페이스를 통해, **Domain Layer는 Data Layer의 구체적인 구현 방법을 몰라도 데이터를 요청하고 사용할 수 있다. 이는 SOLID 원칙 중 의존성 역전 원칙(Dependency Inversion Principle)의 적용 예다. Interface를 통해 추상화하지 않았다면 Domain Layer의 UseCase가 Data Layer의 Repository를 사용할 수 밖에 없다.** 이렇게 되면 Domain Layer는 Data Layer에 의존성이 생겨나게 된다. 하지만 Repository를 Interface로 갖고 있음으로써 의존이 생겨나지 않게 된다. 그래서 Domain Layer는 어떤 계층에도 의존하지 않을 수 있게 되는 겁니다.
+레포지토리 인터페이스는 Domain Layer가 Data Layer로부터 필요한 데이터를 요청하는 방법을 정의한다. 이 인터페이스를 통해
+
+**Domain Layer는 Data Layer의 구체적인 구현 방법을 몰라도 데이터를 요청하고 사용할 수 있다.** 이는 SOLID 원칙 중 의존성 역전 원칙(Dependency Inversion Principle)의 적용 예다. Interface를 통해 추상화하지 않았다면 Domain Layer의 UseCase가 Data Layer의 Repository를 사용할 수 밖에 없다.
+
+ 이렇게 되면 Domain Layer는 Data Layer에 의존성이 생겨나게 된다. 하지만 Repository를 Interface로 갖고 있음으로써 의존이 생겨나지 않게 된다. 그래서 Domain Layer는 어떤 계층에도 의존하지 않을 수 있게 되는 겁니다.
