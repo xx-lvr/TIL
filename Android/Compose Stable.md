@@ -48,3 +48,4 @@ data class User(
 여기서 User 데이터 클래스가 ```stable```로 간주되는 primitive 타입으로 구성되어 있음에도 불구하고, 가변적인 ```name``` property가 존재하기 때문에 ```Compose 컴파일러```는 이를 불안정한 것으로 간주한다.
 
 ## Smart Recomposition(스마트 Recomposition)
+클래스의 안정성이 결정되고 ```Compose 런타임```은```smart recomposition이```라고 알려진 내부 메커니즘을 통해 recomposition을 시작한다. ```smart recomposition```은 제공된 안정성 정보를 활용하여 불필요한 ```recomposition```을 선택적으로 건너뛰어 ```Compose```의 전체 성능을 향상시킨다.
