@@ -51,3 +51,8 @@ data class User(
 클래스의 안정성이 결정되고 ```Compose 런타임```은```smart recomposition이```라고 알려진 내부 메커니즘을 통해 recomposition을 시작한다. ```smart recomposition```은 제공된 안정성 정보를 활용하여 불필요한 ```recomposition```을 선택적으로 건너뛰어 ```Compose```의 전체 성능을 향상시킨다.
 + **안정성에 따른 결정**: 매개변수가 안정적이고 그 값이 변경되지 않은 경우(```equals()가 true를 반환```), Compose는 관련 UI 컴포넌트의 ````recomposition````을 건너뛴다. 매개변수가 불안정하거나, 안정적이지만 그 값이 변경된 경우(```equals()가 false를 반환```), 런타임은 ````recomposition````을 시작하여 UI 레이아웃을 ```무효화(invalidate)```하고 다시 그린다.
 + **동등성 검사**: ```equals()```함수를 통한 동등성 비교는 해당 타입이 안정적으로 간주되는 경우에만 수행한다. 새로운 입력값이 ```Composable 함수```에 전달될 때마다, 항상 해당 타입의 ```equals() 메서드```를 사용하여 이전 값과 비교한한다.
+
+## Composable 함수 추론하기
+```Compose 컴파일러```는 ```Kotlin Compiler 플러그인```으로 구축되어 있어, 개발자가 작성한 소스 코드를 컴파일 시 분석할 수 있다. 또한, ```Composable 함수```의 고유한 특성에 더 잘 맞도록 개발자가 작성한 원본 소스 코드를 조정할 수 있다.
+
+```컴파일러는 Composable 함수```들을 **Restartable, Skippable, Moveable, Replaceable** 등 여러 그룹으로 분류하여 실행을 최적화합니다
