@@ -56,3 +56,9 @@ data class User(
 ```Compose 컴파일러```는 ```Kotlin Compiler 플러그인```으로 구축되어 있어, 개발자가 작성한 소스 코드를 컴파일 시 분석할 수 있다. 또한, ```Composable 함수```의 고유한 특성에 더 잘 맞도록 개발자가 작성한 원본 소스 코드를 조정할 수 있다.
 
 ```컴파일러는 Composable 함수```들을 **Restartable, Skippable, Moveable, Replaceable** 등 여러 그룹으로 분류하여 실행을 최적화합니다
+
+## Restartable(재실행 가능한)
+**Restartable**은 ```Compose 컴파일러```에 의해 추론된 ```Composable 함수의 유형```\
+```Compose 런타임```이 입력의 변화를 감지하면, 이 새로운 입력을 반영하기 위해 함수를 다시 시작(또는 재호출)한다.
+
+특정한 어노테이션으로``` Composable 함수```를 명시적으로 주석 처리하지 않아도, 대부분의 함수는 기본적으로 ```restartable```로 간주된다. 이는 입력이나 상태가 변경될 때마다 Compose 런타임이 ```Composable 함수```에 대해```recomposition```을 트리거할 수 있다는 것을 의미한다
