@@ -61,4 +61,9 @@ data class User(
 **Restartable**은 ```Compose 컴파일러```에 의해 추론된 ```Composable 함수의 유형```\
 ```Compose 런타임```이 입력의 변화를 감지하면, 이 새로운 입력을 반영하기 위해 함수를 다시 시작(또는 재호출)한다.
 
-특정한 어노테이션으로``` Composable 함수```를 명시적으로 주석 처리하지 않아도, 대부분의 함수는 기본적으로 ```restartable```로 간주된다. 이는 입력이나 상태가 변경될 때마다 Compose 런타임이 ```Composable 함수```에 대해```recomposition```을 트리거할 수 있다는 것을 의미한다
+특정한 어노테이션으로``` Composable 함수```를 명시적으로 주석 처리하지 않아도, 대부분의 함수는 기본적으로 ```restartable```로 간주된다. 이는 입력이나 상태가 변경될 때마다 Compose 런타임이 ```Composable 함수```에 대해```recomposition```을 트리거할 수 있다는 것을 의미한다.
+
+## Skippable(생략 가능한)
+**Skippable**은 ```Composable 함수```의 또 다른 특성을 나타내며, 이전 섹션에서 논의한 ```smart recomposition```에 의해 설정된 적절한 조건 하에서 ```recomposition 프로세스```를 완전히 건너뛸 수 있다.
+
+이 유형은 특히 함수 호출의 방대한 계층 구조의 정점에 위치한 ```루트 Composable 함수```의 성능을 향상시키는 데 중요하다.
