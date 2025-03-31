@@ -1,5 +1,7 @@
 ## JSON
 json은 JavaScript Object Notation의 약자로 데이터를 구조적으로 표현하기 위한 일종의 포맷(Format)으로 네트워크를 통해 데이터를 주고받을 때 사용되는 경량의 데이터 형식을 의미한다.
+
+Json 응답은 대괄호로 표시된 배열입니다. Json 객체는 중괄호로 묶여 있고, 각 Json 객체에는 이름 - 값 쌍의 집합이 포함됩니다.
 ```kotlin
 { "Movies" : [
     {
