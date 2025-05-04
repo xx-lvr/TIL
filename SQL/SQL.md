@@ -11,3 +11,13 @@ SAL : 급여
 COMM : 급여 외 추가 수당
 DEPTNO : 사원이 속한 부서 번호
 ```
+
+## 예제
+```sql
+SELECT * FROM EMP;
+```
+```SQL
+SELECT ENAME
+FROM EMP
+WHERE ENAME LIKE '%S';
+```
