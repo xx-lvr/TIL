@@ -10,7 +10,7 @@
 ## Github
 Git 은 소스 코드 기록을 관리하고 추적할 수 있는 버전 관리 시스템이라면 Github 는 Git Repository를 관리할 수 있는 클라우드 기반 서비스다.
 
-## Github와 Git의 차이점
+## Git이랑 GitHub의 차이점
 **Git**: 분산형 버전 관리 시스템으로, 로컬에서 코드의 버전 관리와 기록을 담당합니다.\
 **GitHub**: Git 리포지토리를 호스팅하는 플랫폼으로, 협업, 코드 리뷰, 이슈 트래킹 등 다양한 기능을 제공합니다.
 
@@ -98,3 +98,4 @@ git clone <url>
  git push -u origin main  //로컬 저장소의 커밋된 내용을 원격 저장소(GitHub)에 업로드합니다.
  git push -u origin master  //이건 기본 브랜치가 master인 경우에 아니면 main 쓰면 된다.
  ```
+ 이렇게 하면 github에 잘 올라간다.
