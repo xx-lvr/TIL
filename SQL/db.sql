@@ -1,4 +1,4 @@
-SELECT * FROM DEPT_TEMP;
+''''''''''''''''SELECT * FROM DEPT_TEMP;
 
 INSERT INTO DEPT_TEMP (denton, DNAME, LOC)
 VALUES (50, 'DATABASE', 'SEOUL');
@@ -75,3 +75,27 @@ ALTER TABLE EMP_ALTERRENAME COLUMN HP TO TEL;
 
 ALTER TABLE EMP_ALTER
 MODIFY EMPNO NUMBER(5);
+
+DESC EMP_DDL;
+
+CREATE TABLE EMP_ALTER
+    AS SELECT * FROM EMP;
+
+RENAME EMP_ALTER TO EMP_RENAME;
+
+SELECT *
+    FROM EMP_RENAME;
+
+TRUNCATE TABLE EMP_RENAME;
+
+DROP TABLE EMP_RENAME;
+
+DESC EMP_RENAME
+
+create table emp_hw as select * from emp where 1 <> 1;
+alter table emp_hw add bigo varchar2(20);
+alter table emp_hw modify bigo varchar2(30);
+alter table emp_hw rename COLUMN bigo to remark;
+insert into emp_hw select empno, ename, job, mgr, hiredate, sal, comm, deptno,null from emp;
+select* from emp_hw;
+drop table emp_hw;
