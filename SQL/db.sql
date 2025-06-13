@@ -99,3 +99,17 @@ alter table emp_hw rename COLUMN bigo to remark;
 insert into emp_hw select empno, ename, job, mgr, hiredate, sal, comm, deptno,null from emp;
 select* from emp_hw;
 drop table emp_hw;
+
+
+SELECT * FROM DICT;
+
+SELECT * FROM DICTIONARY;
+SELECT TABLE_NAME
+    FROM USER_TABLES;
+
+SELECT OWNER, TABLE_NAME
+    FROM ALL_TABLES;
+
+-- USER_ 접두어를 가진 데이터 사진 -> 접속한 사용자가 소유한 객체 정보
+-- ALL_ 접두어를 가진 데이터 사전 -> 접속한 사용자가 소유하거나, 사용을 허가받은 객체 정보
+-- DBA_ 접두어를 가진 데이터 사전 -> 데이터베이스 관리 권환을 가진 사용자가 조회가능
