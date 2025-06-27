@@ -272,3 +272,12 @@ INTO 주문테이블 (주문번호, 주문고객, 주문제품, 수량, 배송�
     VALUES ('o10', 'carrot', 'p03', 20, '경기도 안양시', TO_DATE('2022-05-22', 
 'YYYY-MM-DD'))
 SELECT * FROM dual;
+
+CREATE TABLE 미래희망테이블 (
+    고객아이디 VARCHAR2(20)
+    고객이름 VARCHAR2(50)
+    나이 NUMBER(2)
+    등급 VARCHAR2(10) CHECK (등급 IN ('silver', 'gold', 'vip')),
+    직업 VARCHAR2(30)
+    적립금 NUMBER DEFAULT 0
+)
