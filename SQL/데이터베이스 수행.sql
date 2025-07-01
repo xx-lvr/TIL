@@ -1,11 +1,10 @@
--- 1번
-CREATE TABLE 고객테이블 (
-    고객아이디 VARCHAR2(100) PRIMARY KEY,
-    고객이름   VARCHAR2(100) NOT NULL,
-    나이       NUMBER(2),
-    등급       VARCHAR2(100) CHECK (등급 IN ('silver', 'gold', 'vip')),
-    직업       VARCHAR2(100) NOT NULL,
-    적립금     NUMBER DEFAULT 0
+CREATE TABLE 고객테이블(
+ 고객아이디 VARCHAR2(100) PRIMARY KEY,
+ 고객이름 VARCHAR2(100) NOT NULL,
+ 나이 NUMBER(2) NOT NULL,
+ 등급 VARCHAR2(100) CHECK ( 등급 IN ( 'silver', 'gold', 'vip')),
+ 직업 VARCHAR2(100) NOT NULL,
+ 적립금 NUMBER DEFAULT 0
 );
 
 INSERT ALL
@@ -24,16 +23,17 @@ INSERT ALL
   INTO 고객테이블 (고객아이디, 고객이름, 나이, 등급, 직업, 적립금)
     VALUES ('pear', '채광주', 31, 'silver', '회사원', 500)
  SELECT * FROM dual;
-
- -- 2번
-CREATE TABLE 제품테이블 (
-    제품번호   VARCHAR2(100) PRIMARY KEY,
-    제품명     VARCHAR2(100) NOT NULL,
-    재고량     NUMBER NOT NULL,
-    단가       NUMBER NOT NULL,
-    제조업체   VARCHAR2(100) NOT NULL
-)
-
+ 
+ COMMIT;
+ 
+ CREATE TABLE 제품테이블(
+ 제품번호 VARCHAR2(100) PRIMARY KEY,
+ 제품명 VARCHAR2(100) NOT NULL,
+ 재고량 NUMBER NOT NULL,
+ 단가 NUMBER NOT NULL,
+ 제조업체 VARCHAR2(100) NOT NULL
+ );
+ 
  INSERT ALL
   INTO 제품테이블 (제품번호, 제품명, 재고량, 단가, 제조업체)
     VALUES ('p01', '그냥만두', 5000, 4500, '대한식품')
@@ -50,20 +50,19 @@ CREATE TABLE 제품테이블 (
   INTO 제품테이블 (제품번호, 제품명, 재고량, 단가, 제조업체)
     VALUES ('p07', '달콤비스킷', 1650, 1500, '한빛제과')
  SELECT * FROM dual;
-
- -- 3번
-CREATE TABLE 주문테이블 (
-    주문번호   VARCHAR2(100) PRIMARY KEY,
-    주문고객   VARCHAR2(100) NOT NULL,
-    주문제품   VARCHAR2(100) NOT NULL,
-    수량       NUMBER NOT NULL CHECK (수량 > 0),
-    배송지     VARCHAR2(100) NOT NULL,
-    주문일자   DATE NOT NULL,
-    CONSTRAINT FK FOREIGN KEY (주문고객) REFERENCES 고객테이블(고객아이디),
-    CONSTRAINT PK FOREIGN KEY (주문제품) REFERENCES 제품테이블(제품번호)
-)
-
-INSERT ALL
+ 
+ COMMIT;
+ 
+ CREATE TABLE 주문테이블(
+ 주문번호 VARCHAR2(100) PRIMARY KEY,
+ 주문고객 VARCHAR2(100) NOT NULL,
+ 주문제품 VARCHAR2(100) NOT NULL,
+ 수량 NUMBER NOT NULL,
+ 배송지 VARCHAR2(100) NOT NULL,
+ 주문일자 DATE NOT NULL
+ );
+ 
+ INSERT ALL
   INTO 주문테이블 (주문번호, 주문고객, 주문제품, 수량, 배송지, 주문일자)
     VALUES ('o01', 'apple', 'p03', 10, '서울시 마포구', TO_DATE('2022-01-01', 
 'YYYY-MM-DD'))
@@ -95,76 +94,44 @@ INSERT ALL
     VALUES ('o10', 'carrot', 'p03', 20, '경기도 안양시', TO_DATE('2022-05-22', 
 'YYYY-MM-DD'))
  SELECT * FROM dual;
+ 
+ COMMIT;
+ 
+ -- 고객테이블 1번
+ --고객테이블에서 '적립금'이 평균 이상인 고객들의 아이디, 이름, 적립금을 조회
+-- 하시오. (서브쿼리, 비교연산 활용
+SELECT 고객아이디, 고객이름, 적립금 
+FROM 고객테이블 
+WHERE 적립금 >= (SELECT AVG(적립금) FROM 고객테이블);
 
-
--- 고객테이블
--- 1
--- 이 내용이 들어가면
-INSERT INTO 고객테이블 (고객아이디, 고객이름, 나이, 등급, 직업, 적립금)
-VALUES ('apple', '정소화', 20, 'gold', '학생', 1000)
--- 이렇게 오류남
-ERROR at line 1:
-ORA-00001: unique constraint (SCOTT.SYS_C007441) violated
--- 설명 고객아이디는 apple
-
-
--- 2
--- 이 내용 들어가면
-INSERT INTO 고객테이블 (고객아이디, 고객이름, 나이, 등급, 직업, 적립금)
-VALUES ('apple', '김민수', 21, 'vip', '학생', 500)
--- 이렇게 오류남
-ERROR at line 1:
-ORA-00001: unique constraint (SCOTT.SYS_C007441) violated
--- 설명 고객아이디는 
-
-
--- 3
--- 이 내용 들어가면
-INSERT INTO 고객테이블 (고객아이디, 고객이름, 나이, 등급, 직업, 적립금)
-VALUES ('banana2', '김민우', 24, 'diamond', '교사', 800)
--- 이렇게 오류남
-ERROR at line 1:
-ORA-02290: check constraint (SCOTT.SYS_C007440) violated
--- 설명 등급에는 diamond
-
--- 4
--- 이 내용 들어가면
-INSERT INTO 고객테이블 (고객아이디, 고객이름, 나이, 등급, 직업, 적립금)
-VALUES ('banana3', NULL, 26, 'silver', '의사', 900)
--- 이렇게 오류남
-ERROR at line 2:
-ORA-01400: cannot insert NULL into ("SCOTT"."고객테이블"."고객이름")
--- 설명 고객이름에는 null이
-
+-- 고객테이블 2번
+-- 고객테이블에서 같은 직업을 가진 고객이 2명 이상인 직업과 해당 인원수를 
+-- 조회하시오.  (GROUP BY, HAVING 절 활용.  별칭: 인원수)
+SELECT 직업, COUNT(*) AS 인원수 
+FROM 고객테이블 
+GROUP BY 직업 HAVING COUNT(*) >= 2;
 -- 제품테이블
--- 1
--- 이 내용 들어가면
-INSERT INTO 제품테이블 (제품번호, 제품명, 재고량, 단가, 제조업체)
-VALUES ('p09', '기묘한과자', 1000, -500, '한빛제과')
--- 이렇게 오류남
-ERROR at line 1:
-ORA-00001: unique constraint (SCOTT.SYS_C007446) violated
--- 설명: 논리적 오류 저거 단가에는 -가 들어가면 안돼
+-- [문제1] 제품테이블에서 제조업체별로 몇 개의 제품이 있는지(제품수)와 전체 재고량(총재고)
+-- 을 계산하여 보여주시오. (GROUP BY 활용.  별칭: 제품수, 총재고)
+SELECT COUNT(*), SUM(재고량) AS 총재고
+FROM 제품테이블
+GROUP BY 제조업체;
 
--- 주문테이블
--- 1
--- 이 내용 들어가면
-INSERT INTO 주문테이블 (주문번호, 주문고객, 주문제품, 수량, 배송지, 주문일자)
-VALUES ('o11', 'ghost', 'p02', 10, '서울시 강서구', TO_DATE('2022-06-01', 'YYYY-MM-DD'))
--- 이렇게 오류남
-ERROR at line 1:
-ORA-02291: integrity constraint (SCOTT.FK) violated - parent key not found
--- 설명: 주문고객이 ghost
-
-
-
--- 검색 실습문제
-select 고객아이디, 고객이름, 적립금 from 고객테이블 where 적립금 >= (select avg(적립금) from 고객테이블);
-select 직업, count(직업) as 인원수 from 고객테이블 group by 직업 having count() >= 2;
-
-select 제조업체, count() as 제품수, sum(재고량) as 총재고 from 제품테이블 group by 제조업체;
-select * from 제품테이블 where 단가 >= (select max(단가) from 제품테이블);
-
-select c.고객아이디, p.제품명, o.수량 from 주문테이블 o inner join 고객테이블 c on c.고객아이디 = o.주문고객 inner join 제품테이블 p on p.제품번호 = o.주문제품;
-select c.고객아이디, sum(o.수량) as 총주문수량 from 주문테이블 o inner join 고객테이블 c on c.고객아이디 = o.주문고객 group by c.고객아이디;
-select * from 고객테이블 where 고객아이디 in (select 주문고객 from 주문테이블 group by 주문고객 having count(주문제품) >= 2);
+-- [문제2] 제품테이블에서 단가가 가장 높은 제품(들)을 조회하시오.  
+-- (서브쿼리, 비교연산 활용
+SELECT * FROM 제품테이블 WHERE 단가 >= (SELECT MAX(단가) FROM 제품테이블);
+--  주문테이블
+-- [문제1] 주문테이블, 고객테이블, 제품테이블을 조인하여 고객이 어떤 제품을 몇 개 주문
+-- 했는지 조회하시오. (INNER JOIN 활용. 주문테이블:O, 고객테이블:C, 제품테이블:P
+SELECT C.고객아이디, P.제품명, O.수량 
+FROM 주문테이블 O
+INNER JOIN 고객테이블 C ON C.고객아이디 = O.주문고객
+INNER JOIN 제품테이블 P ON P.제품번호 = O.주문제품;
+--  [문제2] 고객아이디별로 주문한 제품 수량의 총합을 계산하시오.  
+-- (INNER JOIN, GROUP BY 활용. 주문테이블:O, 고객테이블:C,  별칭: 총주문수량)
+SELECT C.고객아이디, SUM(O.수량) AS 총주문수량
+FROM 주문테이블 O INNER JOIN 고객테이블 C ON C.고객아이디 = O.주문고객 GROUP BY C.고객아이디;
+-- [문제3] 두 번 이상 주문한 고객들을 검색하고 해당 고객에 관한 모든 값을 출력하시오.
+-- (서브쿼리, GROUP BY, HAVING 절 활용.)
+SELECT * FROM 고객테이블 
+WHERE 고객아이디 IN (SELECT 주문고객 FROM 주문테이블 GROUP BY 주문고객 HAVING COUNT(주문제품) >= 2);
