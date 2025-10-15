@@ -8,7 +8,7 @@ HTTP와 HTTPS를 알기 전에 **P**인 **프로토콜(Protocol)** 에 대해서
 **HTTP(Hyper Text Transfer Protocol)** 는 클라이언트와 서버 간 통신을 위한 프로토콜이다.\
 HTTP 프로토콜을 사용하여 통신을 수행하면 홈페이지 URL이```‘http://'```로 시작한다.
 ## HTTPS(Hyper Text Transfer Protocol Secure)
-![alt text](image.png)
+![alt text](../image/https.png)
 **HTTPS(Hyper Text Transfer Protocol Secure)** 는 HTTP의 확장 버전이나 더 안전한 버전이라고 할 수 있다.\
 HTTPS에서는 브라우저와 서버가 데이터를 전송하기 전에 안전하고 암호화된 연결을 설정한다.\
 HTTP 프로토콜을 사용하여 통신을 수행하면 홈페이지 URL이```‘https://'```로 시작한다.
